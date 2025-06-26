@@ -19,9 +19,10 @@ int main(int argc, char *argv[]) {
     char url[MAX_QUERY_LEN + 64];
     snprintf(url, sizeof(url), "https://www.google.com/search?q=%s", query);
 
-    char command[MAX_QUERY_LEN + 80];
-    snprintf(command, sizeof(command), "xdg-open \"%s\"", url);
+    char command[MAX_QUERY_LEN + 100];
+    snprintf(command, sizeof(command), "nohup xdg-open \"%s\" >/dev/null 2>&1 &", url);
 
     system(command);
+
     return 0;
 }
